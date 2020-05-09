@@ -1,15 +1,19 @@
-belom bisa login username | email
-dynamic web Settings
-dynamic theme
-my account
-materializing form
-setelah crud -> route back, biar query string kebaca
-
-php artisan make:migration create_users_table --create=users
-
+1. buka cmd di root directory project, jalankak perintah per line:
 composer install
 npm install
-cp .env.master .env
 copy ".env.master" ".env"
-
 php artisan key:generate
+
+2. restore db -> ambil db di database/db_backup/nama_Db_terbaru.sql -> restore ke phpmyadmin (buat db terserah namanya)
+-buka file .env sesuaikan dg yg ada di local:
+    DB_CONNECTION
+    DB_DATABASE
+    DB_USERNAME
+    DB_PASSWORD
+
+3. jalankan service -> buka cmd di root directory project, jalankak perintah:
+php artisan serve
+
+4. tes aplikasi -> buka http://127.0.0.1:8000/login (username: yohanes.pajero, pass: 10r)
+
+5. otak atik sendiri yaa ;D
