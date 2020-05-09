@@ -7,6 +7,7 @@ Route::get('/', [
     'as'      => '/',
     'uses'    => 'publics\PageController@index'
 ]);
+Route::redirect('/', '/login');
 // Route::get('/', function () {
 //     return view('public.landing');
 // })->name('/');
@@ -15,6 +16,8 @@ Route::get('/', [
 // })->name('about');
 
 Auth::routes();
+Route::redirect('/password/reset', '/login');
+Route::redirect('/register', '/login');
 
 
 Route::group(['middleware' => ['auth']], function() {

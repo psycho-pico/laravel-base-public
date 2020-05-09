@@ -28,7 +28,7 @@
          <li>{{ __($error) }}</li>
        @endforeach
     </ul>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <button type="button" class="close">
         <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -147,19 +147,19 @@
 
                             @elseif ($column['type'] == 'password')
                                 <div class="form-label-group">
-                                    {!! Form::password($column['name'], array('placeholder' => __($key),'class' => 'form-control', 'autocomplete' => 'off', 'id' => ('input' . $column['name']))) !!}
+                                    {!! Form::password($column['name'], array('placeholder' => __($key),'class' => 'form-control', 'spellcheck' => 'false', 'autocomplete' => 'off', 'id' => ('input' . $column['name']))) !!}
                                     <label for="{{'input' . $column['name']}}">{{__($key)}}</label>
                                 </div>
 
                             @elseif ($column['type'] == 'longtext')
                                 <div class="form-label-group">
-                                    {!! Form::textarea($column['name'], null, array('placeholder' => __($key),'class' => 'form-control', 'autocomplete' => 'off', 'id' => ('input' . $column['name']), 'rows' => '3')) !!}
+                                    {!! Form::textarea($column['name'], null, array('placeholder' => __($key),'class' => 'form-control', 'spellcheck' => 'false', 'autocomplete' => 'off', 'id' => ('input' . $column['name']), 'rows' => '3')) !!}
                                     <label for="{{'input' . $column['name']}}">{{__($key)}}</label>
                                 </div>
 
                             @else
                                 <div class="form-label-group">
-                                    {!! Form::text($column['name'], null, array('placeholder' => __($key),'class' => 'form-control', 'autocomplete' => 'off', 'id' => ('input' . $column['name']))) !!}
+                                    {!! Form::text($column['name'], null, array('placeholder' => __($key),'class' => 'form-control', 'spellcheck' => 'false', 'autocomplete' => 'off', 'id' => ('input' . $column['name']))) !!}
                                     <label for="{{'input' . $column['name']}}">{{__($key)}}</label>
                                 </div>
                             @endif

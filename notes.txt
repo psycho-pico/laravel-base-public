@@ -1,6 +1,5 @@
 1. buka cmd di root directory project, jalankak perintah per line:
 composer install
-npm install
 copy ".env.master" ".env"
 php artisan key:generate
 
@@ -12,8 +11,8 @@ php artisan key:generate
     DB_PASSWORD
 
 3. jalankan service -> buka cmd di root directory project, jalankak perintah:
-php artisan serve
+php artisan serve. di jendela cmd akan tergenerate url laravel
 
-4. tes aplikasi -> buka http://127.0.0.1:8000/login (username: yohanes.pajero, pass: 10r)
+4. tes aplikasi -> buka url laravel dari cmd tadi (username: yohanes.pajero, pass: 10r)
 
 5. otak atik sendiri yaa ;D

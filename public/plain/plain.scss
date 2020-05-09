@@ -1,0 +1,273 @@
+// min on
+
+@import "../vendor/fontawesome-free/css/all";
+@import "../css/roboto";
+@import "../css/style";
+// @import "../bootstrap/bootstrap-sticky-footer-navbar";
+
+$light_1: #f9f9f9;
+$light_2: #f8f9fc;
+$dark: #6e707e;
+$dark_2: #858796;
+$primary_color: #005eff;
+
+
+body {
+    background-color: $light_1;
+}
+.footer {
+    background-color: transparent;
+    // position: absolute;
+    // bottom: 0;
+    width: 100%;
+    padding: 1rem;
+    margin-top: -55px;
+}
+.navbar {
+    height: 60px;
+}
+.navbar-brand {
+    opacity: .7;
+    .title {
+        font-weight: 400;
+        margin-left: 5px;
+        color: rgba(17,21,24,.95);
+    }
+    img {
+        height: 40px;
+        width: auto;
+        filter: invert(1);
+    }
+}
+.secondary-text {
+    color: $dark_2 !important;
+}
+main .container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    display: flex;
+    min-height: 100vh;
+    margin-top: -60px;
+    align-items: center !important;
+    .justify-content-center {
+        width: 100%;
+        margin: 0;
+    }
+}
+.card {
+    margin-top: 70px;
+    margin-bottom: 55px;
+    background-color: $light_2;
+    box-shadow: 0 2px 50px 0 rgba(0,0,0,0.1);
+    transition: all .15s ease-out;
+    color: $dark;
+    border-color: transparent !important;
+    &:hover {
+        // margin-top: 60px;
+    }
+    .card-header {
+        border-color: transparent !important;
+    }
+    .card-body {
+        padding: 31px;
+        border-color: transparent !important;
+    }
+}
+
+.modal-header, .modal-body, .modal-footer {
+    border-color: transparent !important;
+}
+.modal-body {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 16px;
+}
+.modal-header {
+    text-shadow: none !important;
+    .close {
+        span {
+            text-shadow: none !important;
+            color: $dark;
+        }
+        &:focus {
+            box-shadow: none;
+            outline: none;
+        }
+    }
+}
+
+.modal.fade {
+    transition: opacity .1s ease-out !important;
+    .modal-dialog {
+        transition: all .1s ease-out !important;
+    }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus, .form-control {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    // padding: 0.5rem 0.75rem;
+    // height: calc(1.6em + 1rem + 2px);
+    color: $dark;
+    // border-color: rgba(71,71,71,.07) !important;
+
+
+    background-color: rgba(71,71,71,.07) !important;
+    // -webkit-text-fill-color: $dark !important;
+    // background-image: linear-gradient(0deg, $primary_color 2px, rgba(156,39,176,0) 0),linear-gradient(0deg, #262626 1px, rgba(255,255,255,0) 0);
+    -webkit-box-shadow: 0 0 0px 1000px $light_1 inset !important;
+    &:focus {
+        // color: $dark;
+    }
+}
+
+
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+
+
+.form-label-group {
+    position: relative;
+    margin-bottom: 1rem;
+
+    & > input,
+    & > label {
+        height: 3.125rem;
+        padding: 0.75rem;
+    }
+    & > textarea {
+        padding: 0.75rem;
+    }
+    & > label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        margin-bottom: 0;
+        /* Override default `<label>` margin */
+        line-height: 1.5;
+        color: #969696;
+        pointer-events: none;
+        cursor: text;
+        /* Match the input under the label */
+        border: 1px solid transparent;
+        border-radius: 0.25rem;
+        transition: all 0.1s ease-in-out;
+    }
+    input, textarea {
+        &::-webkit-input-placeholder {
+            color: transparent;
+        }
+        &:-ms-input-placeholder {
+            color: transparent;
+        }
+        &::-ms-input-placeholder {
+            color: transparent;
+        }
+        &::-moz-placeholder {
+            color: transparent;
+        }
+        &::placeholder {
+            color: transparent;
+        }
+        &:not(:placeholder-shown) {
+            padding-top: 1.25rem;
+            padding-bottom: 0.25rem;
+            -webkit-text-fill-color: $dark !important;
+        }
+        &:not(:placeholder-shown) ~ label {
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+            font-size: 12px;
+            color: #777;
+        }
+        &:disabled {
+            & + label {
+                padding-left: 0;
+            }
+        }
+    }
+}
+
+/* Fallback for Edge
+-------------------------------------------------- */
+@supports (-ms-ime-align: auto) {
+    .form-label-group > label {
+        display: inline-block;
+        position: absolute;
+        top: -10px;
+        left: 10px;
+        font-size: 12px;
+        background-color: #ffffff;
+        width: auto;
+        line-height: 12px;
+        padding: 2px;
+        height: 18px;
+    }
+
+    .form-label-group > input, .form-label-group > textarea {
+        margin-top: 15px;
+        &:disabled {
+            padding-left: 10px;
+            border: 0 !important;
+        }
+    }
+
+    .form-label-group {
+        input::-ms-input-placeholder, textarea::-ms-input-placeholder {
+            color: #777;
+        }
+    }
+}
+/* Fallback for IE
+-------------------------------------------------- */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .form-label-group > label {
+        display: inline-block;
+        position: absolute;
+        top: -10px;
+        left: 10px;
+        font-size: 12px;
+        background-color: #ffffff;
+        width: auto;
+        line-height: 12px;
+        padding: 2px;
+        height: 18px;
+    }
+
+    .form-label-group > input, .form-label-group > textarea {
+        margin-top: 15px;
+        &:disabled {
+            padding-left: 10px;
+            border: 0 !important;
+        }
+    }
+
+    .form-label-group input:-ms-input-placeholder, .form-label-group textarea:-ms-input-placeholder {
+        color: #777;
+    }
+}
+
+
+
+@import "plain-dark";

@@ -7,25 +7,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="yohanes pajero">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <title>{{ config('app.name', 'Psychopico2') }} - @yield('title')</title>
 
     <!-- Custom fonts for this template-->
-    <link href="{{ asset('sb-admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/roboto.min.css') }}" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="{{ asset('sb-admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/dashboard.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/dashboard-dark.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin-src/css/admin.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin-src/css/dashboard.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin-src/css/dashboard-dark.min.css') }}" rel="stylesheet">
 
     @yield('header')
 
 </head>
+@php
+if (Auth::user()->getPreference && !is_null(Auth::user()->getPreference->dark_mode)) {
+    if (Auth::user()->getPreference->dark_mode == 1) {
+        $dark = true;
+    }
+    else {
+        $dark = false;
+    }
+}
+else {
+    if (date('H') > 6 && date('H') < 18) {
+        $dark = false;
+    }
+    else {
+        $dark = true;
+    }
 
-<body class="{{Auth::user()->getPreference->dark_mode ? 'dark' : ''}}" id="page-top">
+}
+@endphp
+<body class="{{$dark ? 'dark' : ''}}" id="page-top">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -241,9 +259,9 @@
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Preferece
                                 </a>
-                                <a class="dropdown-item dark-mode-toggler {{Auth::user()->getPreference->dark_mode ? 'dark-active' : ''}}" href="#!">
+                                <a class="dropdown-item dark-mode-toggler {{$dark ? 'dark-active' : ''}}" href="#!">
                                     <i class="fas fa-adjust fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Dark Mode <span class="badge badge-secondary ml-1 badge-dark">{{Auth::user()->getPreference->dark_mode ? 'off' : 'on'}}</span>
+                                    Dark Mode <span class="badge badge-secondary ml-1 badge-dark">{{$dark ? 'on' : 'off'}}</span>
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -322,18 +340,20 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-    <script src="{{ asset('sb-admin/vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('sb-admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    {{-- <script src="{{ asset('sb-admin/vendor/jquery-easing/jquery.easing.min.js') }}"></script> --}}
-    <script src="{{ asset('sb-admin/js/sb-admin-2.js') }}"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    {{-- <script src="{{ asset('sb-admin-src/js/sb-admin-2.js') }}"></script> --}}
     <script src="{{ asset('js/jquery.mousewheel.min.js') }}"></script>
+
     <script src="{{ asset('js/bootstrap3-typeahead.min.js') }}"></script>
+    {{-- <script src="{{ asset('js/typeahead.bundle.min.js') }}"></script> --}}
+    {{-- <script src="{{ asset('js/jquery.typeahead.min.js') }}"></script> --}}
 
 
     @yield('footer')
 
-    <script src="{{ asset('js/yph-func.js') }}"></script>
-    <script src="{{ asset('js/dashboard.js') }}"></script>
+    <script src="{{ asset('admin-src/js/admin-base.js') }}"></script>
+    <script src="{{ asset('admin-src/js/admin-func.js') }}"></script>
 
 </body>
 

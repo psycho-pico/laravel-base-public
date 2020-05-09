@@ -55,7 +55,7 @@
                   @if ($columnSearchableVal['search'] == 'string')
                       <div class="col-xs-12 col-sm-12 col-md-6">
                           <div class="form-label-group">
-                              {!! Form::text($columnSearchableVal['name'], app('request')->input($columnSearchableVal['name']), array('placeholder' => __($columnSearchableKey),'class' => 'form-control', 'autocomplete' => 'off', 'id' => ('input' . $columnSearchableVal['name']))) !!}
+                              {!! Form::text($columnSearchableVal['name'], app('request')->input($columnSearchableVal['name']), array('placeholder' => __($columnSearchableKey),'class' => 'form-control', 'spellcheck' => 'false', 'autocomplete' => 'off', 'id' => ('input' . $columnSearchableVal['name']))) !!}
                               <label for="{{'input' . $columnSearchableVal['name']}}">{{__($columnSearchableKey)}}</label>
                           </div>
                       </div>
@@ -97,7 +97,7 @@
 <div class="alert alert-{{session('success') ? 'success' : 'danger'}}">
     <p>{{ $message }}</p>
     {{-- <p>{{ Session::get() }}</p> --}}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <button type="button" class="close">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
@@ -158,15 +158,17 @@
                                             $width_th_val = $width_th . '120px';
                                         }
                                         $searchable = $column['search'] ?? false;
+                                        $searchable_dir = '';
+                                        if (app('request')->input('o') == $column['name']) {
+                                            if (app('request')->input('s') == 'desc') {
+                                                $searchable_dir = 'up';
+                                            }
+                                            else {
+                                                $searchable_dir = 'down';
+                                            }
+                                        }
                                         @endphp
-                                        <th class="{{$searchable ? 'th-searchable' : ''}}" {{$searchable ? 'data-search='.$column['name'] : ''}} {{$width_th_val ?? ''}}>
-                                            @if (app('request')->input('o') == $column['name'])
-                                                @if (app('request')->input('s') == 'desc')
-                                                    <i class="fas fa-caret-up mr-2"></i>
-                                                @else
-                                                    <i class="fas fa-caret-down mr-2"></i>
-                                                @endif
-                                            @endif
+                                        <th class="{{$searchable ? 'th-searchable' : ''}} {{$searchable_dir}}" {{$searchable ? 'data-search='.$column['name'] : ''}} {{$width_th_val ?? ''}}>
                                             {{__($key)}}
                                         </th>
                                     @endif

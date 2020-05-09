@@ -7,10 +7,10 @@
 
         <title>{{ config('app.name', 'Psychopico2') }}</title>
 
-        <link href="{{ asset('sb-admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('css/roboto.min.css') }}" rel="stylesheet">
         <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/bootstrap-sticky-footer-navbar.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('bootstrap/bootstrap-sticky-footer-navbar.min.css') }}" rel="stylesheet">
 
     </head>
     <body class="d-flex flex-column h-100">
@@ -55,9 +55,7 @@
 
         <!-- Begin page content -->
         <main role="main" class="flex-shrink-0">
-          <div class="container">
-              @yield('content')
-          </div>
+            @yield('content')
         </main>
 
         <footer class="footer mt-auto py-3">
