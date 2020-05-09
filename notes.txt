@@ -11,7 +11,8 @@ php artisan key:generate
     DB_PASSWORD
 
 3. jalankan service -> buka cmd di root directory project, jalankak perintah:
-php artisan serve. di jendela cmd akan tergenerate url laravel
+php artisan serve
+di jendela cmd akan tergenerate url laravel
 
 4. tes aplikasi -> buka url laravel dari cmd tadi (username: yohanes.pajero, pass: 10r)
 
