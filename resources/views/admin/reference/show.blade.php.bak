@@ -1,0 +1,59 @@
+@extends('reference.form')
+@section('form')
+    
+<div class="row">
+    @foreach($columns as $key => $column)
+    @php
+    if (is_null($column['name'])) {
+        $colorIndicator = 'success';
+    }
+    elseif ($column['name'] == 'deleted_at') {
+        $colorIndicator = 'warning';
+    }
+    else {
+        $colorIndicator = 'primary';
+    }
+    @endphp
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-{{$colorIndicator}} shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-{{$colorIndicator}} text-uppercase mb-1">
+                            {{__(explode(".", $key)[1] ?? $key)}}
+                        </div>
+                        <div class=" mb-0 text-gray-800">
+                            @if (is_null($column['name']))
+                                @if (!is_null($column['relation']) && $column['relation'] == 'hasMany')
+                                    @if(!empty($maindata->{$column['method']}()))
+                                        @foreach($maindata->{$column['method']}() as $v)
+                                            <label class="badge badge-success">{{ $v }}</label>
+                                        @endforeach
+                                    @endif
+                                @endif
+                            @else
+                                @if (!is_null($maindata->{$column['name']}))
+                                    @if ($column['type'] == 'boolean')
+                                        {{ __($maindata->{$column['name']} ? 'Yes' : 'No') }}
+                                    @elseif ($column['type'] == 'timestamp')
+                                        {{ Carbon\Carbon::parse($maindata->{$column['name']})->format('d M Y') }}
+                                        <span class="small ml-1">{{ Carbon\Carbon::parse($maindata->{$column['name']})->format('H:i') }}<span class="small">{{ Carbon\Carbon::parse($maindata->{$column['name']})->format(':s') }}</span></span>
+                                    @else
+                                        {{ $maindata->{$column['name']} }}
+                                    @endif
+                                @else
+                                    <span class="text-secondary font-italic">null</span>
+                                @endif
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        {{-- <i class="fas fa-calendar fa-2x text-gray-300"></i> --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+</div>
+@endsection

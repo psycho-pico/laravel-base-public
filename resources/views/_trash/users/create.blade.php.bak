@@ -1,0 +1,62 @@
+@extends('reference.form')
+@section('form')
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6">
+        <div class="form-group">
+            <strong>{{__('Name')}}:</strong>
+            {!! Form::text('name', null, array('placeholder' => __('Name'),'class' => 'form-control')) !!}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6">
+        <div class="form-group">
+            <strong>{{__('Email')}}:</strong>
+            {!! Form::text('email', null, array('placeholder' => __('Email'),'class' => 'form-control')) !!}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6">
+        <div class="form-group">
+            <strong>{{__('Username')}}:</strong>
+            {!! Form::text('username', null, array('placeholder' => __('Username'),'class' => 'form-control')) !!}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6">
+        <div class="form-group">
+            <strong>{{__('Password')}}:</strong>
+            {!! Form::password('password', array('placeholder' => __('Password'),'class' => 'form-control')) !!}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6">
+        <div class="form-group">
+            <strong>{{__('Confirm Password')}}:</strong>
+            {!! Form::password('confirm-password', array('placeholder' => __('Confirm Password'),'class' => 'form-control')) !!}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6">
+        <div class="form-group">
+            <strong>{{__('Role')}}:</strong>
+            <div class="row">
+                @foreach($roles as $roleKey => $role)
+                    <div class="inline-block mr-3">
+                        <label>
+                            {{ Form::checkbox('roles[]', $role, false, array('class' => 'name')) }}
+                            {{ $role }}
+                        </label>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6">
+        <div class="form-group">
+            <label>
+                {!! Form::checkbox('is_active', 1) !!}
+                <span>{{__('Is Active')}}</span>
+            </label>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+        <button type="submit" class="btn btn-primary">{{__('Submit')}}</button>
+    </div>
+</div>
+@endsection

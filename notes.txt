@@ -1,0 +1,15 @@
+belom bisa login username | email
+dynamic web Settings
+dynamic theme
+my account
+materializing form
+setelah crud -> route back, biar query string kebaca
+
+php artisan make:migration create_users_table --create=users
+
+composer install
+npm install
+cp .env.master .env
+copy ".env.master" ".env"
+
+php artisan key:generate
