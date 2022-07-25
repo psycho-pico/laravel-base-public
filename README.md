@@ -24,16 +24,16 @@ Created by **[Psycho Pico](https://github.com/psycho-pico)**
 # How To Install
 ``` bash
 # clone the repo
-`$ git clone https://github.com/psycho-pico/picocentric-laravel.git my-project`
+$ git clone https://github.com/psycho-pico/picocentric-laravel.git my-project
 
 # go into app's directory
-`$ cd my-project`
+$ cd my-project
 
 # install app's dependencies
-`$ composer install`
+$ composer install
 
 # install app's dependencies
-`$ npm install`
+$ npm install
 
 ```
 
