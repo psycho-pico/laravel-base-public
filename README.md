@@ -1,4 +1,5 @@
-# Picocentric Laravel
+![Picocentric Laravel](https://user-images.githubusercontent.com/25912250/180932168-1132031f-4882-4ace-b12c-9e6f64a690a9.jpg)
+
 
 Experimental Laravel Landing Page and Admin Panel Template to speed up the development process.
 
