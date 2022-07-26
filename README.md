@@ -1,6 +1,6 @@
 # Picocentric Laravel
 
-A Laravel Landing Page and Admin Panel Template to speed up the development process.
+Experimental Laravel Landing Page and Admin Panel Template to speed up the development process.
 
 Created by **[Psycho Pico](https://github.com/psycho-pico)**
 
